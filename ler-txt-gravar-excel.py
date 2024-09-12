@@ -16,7 +16,7 @@ for linha in arquivo:   # read your entire input file, 1 line at a time.
     posicao = linha.find('author')  # search for 'author'
     if posicao != -1: # found 'author'
         c1 = sheet.cell(row=planilha_linha, column=1)  # author
-        c1.value = linha[posicao+10:linha.__len__()]  # name
+        c1.value = linha[posicao+10:linha.__len__()]  # name (Check if the author's name in your input file is in position 10)
  #       print(planilha_linha,'author',linha[posicao+9:linha.__len__()])
     else:
         posicao = linha.find('title')
@@ -24,15 +24,15 @@ for linha in arquivo:   # read your entire input file, 1 line at a time.
             posicao = linha.find('ktitle')
             if posicao == -1: # it is not booktitle
                 c1 = sheet.cell(row=planilha_linha, column=2)  # title
-                c1.value = linha[posicao+10:linha.__len__()]  # name
+                c1.value = linha[posicao+10:linha.__len__()]  # title (Check if the title in your input file is in position 10)
  #               print('title',linha[posicao+8:linha.__len__()])
         else:
             posicao = linha.find('abstract')
             if posicao != -1: # found 'abstract'
                 c1 = sheet.cell(row=planilha_linha, column=3)  # abstract
-                c1.value = linha[posicao+12:linha.__len__()]  # name
+                c1.value = linha[posicao+12:linha.__len__()]  # abstract (Check if the abstract in your input file is in position 12)
  #               print('abstract',linha[posicao+11:linha.__len__()])
                 planilha_linha += 1
 #    print('for', planilha_linha)
-wb.save('C:\\Users\\ctamp\\Downloads\\acm.xlxs') # put the path and name of your output file here
+wb.save('C:\\Users\\ctamp\\Downloads\\acm.xlsx') # put the path and name of your output file here
 
